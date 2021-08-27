@@ -9,7 +9,7 @@
     <button id="display-todos-button">Our First Button</button>
     <button id="toggle-all-button">Toggle All</button>
     <button id="add-button">Add</button>
-    <input type="text" />
+    <input id="add-input" />
     <script>
       // var todos = ['Item 1', 'Item 2', 'Item 3'];
       var todos = [
@@ -19,9 +19,16 @@
       ];
       console.log(todos);
 
-      function add(something) {
-        todos.push({ todoList: something, completed: false });
+      // function add(something) {
+      //   todos.push({ todoList: something, completed: false });
+      //   console.log(todos);
+      // }
+
+      function add() {
+        var text = addInput.value;
+        todos.push({ todoList: text, completed: false });
         console.log(todos);
+        addInput.value = "";
       }
 
       function edit(index, something) {
@@ -89,6 +96,8 @@
       toggleAllButton.addEventListener("click", toggleAll);
 
       var addButton = document.getElementById("add-button");
+      var addInput = document.getElementById("add-input");
+      addButton.addEventListener("click", add);
     </script>
   </body>
 </html>
